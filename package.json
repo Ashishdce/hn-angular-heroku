@@ -34,8 +34,8 @@
         "@angular/service-worker": "^1.0.0-beta.16",
         "@angular/platform-server": "^4.4.4",
         "@nguniversal/express-engine": "^5.0.0-beta.1",
-        "bulma": "^0.5.3"
-
+        "bulma": "^0.5.3",
+        "express": "^4.16.1"
     },
     "devDependencies": {
         "@angular/language-service": "^4.0.0",
