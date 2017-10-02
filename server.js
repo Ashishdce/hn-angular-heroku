@@ -42,6 +42,7 @@ app.set('views', 'dist');
 /* Direct all routes to index.html, where Angular will take care of routing */
 app.get('*', angularRouter);
 
-app.listen(3000, () => {
-    console.log(`Listening on http://localhost:3000`);
+app.listen(process.env.PORT || 8080, function() {
+    var port = server.address().port;
+    console.log("App now running on port", port);
 });
