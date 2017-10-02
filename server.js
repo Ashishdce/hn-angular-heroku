@@ -29,7 +29,7 @@ function requireHTTPS(req, res, next) {
         //FYI this should work for local development as well
         return res.redirect('https://' + req.hostname + req.url);
     }
-    return next();
+    next();
 }
 const app = express();
 
