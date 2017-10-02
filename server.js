@@ -27,6 +27,7 @@ function angularRouter(req, res) {
 }
 
 const app = express();
+app.use(compression());
 
 /* Root route before static files, or it will serve a static index.html, without pre-rendering */
 app.get('/', angularRouter);
@@ -41,7 +42,6 @@ app.engine('html', ngUniversal.ngExpressEngine({
 app.set('view engine', 'html');
 app.set('views', 'dist');
 app.use('/', httpsRedirect(true));
-app.use(compression());
 /* Direct all routes to index.html, where Angular will take care of routing */
 app.get('*', angularRouter);
 
