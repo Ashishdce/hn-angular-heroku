@@ -1,0 +1,84 @@
+{
+  "dynamic": {
+    "group": [
+      {
+        "name": "hnapi",
+        "urls": {
+          "https://node-hnapi.herokuapp.com": {
+            "match": "prefix"
+          }
+        },
+        "cache": {
+          "optimizeFor": "freshness",
+          "maxAgeMs": 3600000,
+          "maxEntries": 20,
+          "strategy": "lru"
+        }
+      }
+    ]
+  },
+  "routing": {
+    "index": "/index.html",
+    "routes": {
+      "^/newest/[^/]+$": {
+        "match": "regex"
+      },
+      "/newest": {
+        "match": "exact"
+      },
+      "^/news/[^/]+$": {
+        "match": "regex"
+      },
+      "/news": {
+        "match": "exact"
+      },
+      "^/show/[^/]+$": {
+        "match": "regex"
+      },
+      "/show": {
+        "match": "exact"
+      },
+      "^/ask/[^/]+$": {
+        "match": "regex"
+      },
+      "/ask": {
+        "match": "exact"
+      },
+      "^/jobs/[^/]+$": {
+        "match": "regex"
+      },
+      "/jobs": {
+        "match": "exact"
+      },
+      "/user": {
+        "match": "exact"
+      },
+      "^/item/[^/]+$": {
+        "match": "regex"
+      },
+      "/item": {
+        "match": "exact"
+      },
+      "/": {
+        "match": "exact"
+      },
+      "^/.*$": {
+        "match": "regex"
+      }
+    }
+  },
+  "static": {
+    "urls": {
+      "/main.bundle.js": "754b83bf7c1f5a083da6428ae12324083672b506",
+      "/sw-register.bundle.js": "c694f28285d6bb767850612d6c3f70f9f80616b6",
+      "/styles.bundle.css": "1e41d89d006a0d730e6a153e06f4c7d5d65f4575",
+      "/assets/icons/android-chrome-144x144.png": "d1d8e5594104f436f18da2cbc02e710f596a4943",
+      "/assets/icons/android-chrome-192x192.png": "ea5f644ee671e32253c1ce7208c248831d4a715d",
+      "/assets/icons/android-chrome-256x256.png": "14836d76986a177e8835e73341c4708a5ee31c7f",
+      "/assets/icons/android-chrome-512x512.png": "bbc84250f99a9deafe376231f15e759cf6cf3502",
+      "/favicon.ico": "84161b857f5c547e3699ddfbffc6d8d737542e01",
+      "/manifest.json": "da46c859d02f403b76b79fccf6917cd5306bf86a"
+    },
+    "_generatedFromWebpack": true
+  }
+}
