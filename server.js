@@ -5,6 +5,7 @@ require('zone.js/dist/zone-node');
 
 const express = require('express');
 const ngUniversal = require('@nguniversal/express-engine');
+const httpsRedirect = require('express-https-redirect');
 
 /* The server bundle is loaded here, it's why you don't want a changing hash in it */
 const appServer = require('./dist-server/main.bundle');
@@ -24,13 +25,6 @@ function angularRouter(req, res) {
 
 }
 
-function requireHTTPS(req, res, next) {
-    if (!req.secure) {
-        //FYI this should work for local development as well
-        return res.redirect('https://' + req.hostname + req.url);
-    }
-    next();
-}
 const app = express();
 
 /* Root route before static files, or it will serve a static index.html, without pre-rendering */
@@ -45,7 +39,7 @@ app.engine('html', ngUniversal.ngExpressEngine({
 }));
 app.set('view engine', 'html');
 app.set('views', 'dist');
-app.use(requireHTTPS);
+app.use('/', httpsRedirect(true));
 /* Direct all routes to index.html, where Angular will take care of routing */
 app.get('*', angularRouter);
 
