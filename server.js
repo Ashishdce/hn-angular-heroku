@@ -6,6 +6,7 @@ require('zone.js/dist/zone-node');
 const express = require('express');
 const ngUniversal = require('@nguniversal/express-engine');
 const httpsRedirect = require('express-https-redirect');
+const compression = require('compression');
 
 /* The server bundle is loaded here, it's why you don't want a changing hash in it */
 const appServer = require('./dist-server/main.bundle');
@@ -40,6 +41,7 @@ app.engine('html', ngUniversal.ngExpressEngine({
 app.set('view engine', 'html');
 app.set('views', 'dist');
 app.use('/', httpsRedirect(true));
+app.use(compression());
 /* Direct all routes to index.html, where Angular will take care of routing */
 app.get('*', angularRouter);
 
