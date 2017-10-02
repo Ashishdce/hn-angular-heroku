@@ -13,12 +13,12 @@
                 <div class="domain">
                     <p [innerHTML]="item.domain"></p>
                 </div>
-                <div class="description level">
-                    <div class="level-left">
+                <div class="description">
+                    <div>
                         <span *ngIf="item.user">{{item.points ? item.points : '0'}} &#9733; by</span>
                         <span class="user-name" [innerHTML]="item.user" tabindex="0" (click)="navigate('user', item.user)" *ngIf="item.user"> </span>
                     </div>
-                    <div class="level-right">
+                    <div>
                         <span class="time" [innerHTML]="item.time_ago"></span> |
                         <span class="comments" [innerHTML]="item.comments_count + ' comments'" (click)="navigate('comments', item.id)" tabindex="0"></span>
                     </div>
